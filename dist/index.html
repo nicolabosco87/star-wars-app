@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Star Wars App</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body ng-app="starwarsapp">
+
+<div ng-controller="mainController" class="container" >
+
+    
+    <div class="row">
+        <div class="col-xs-12">
+            <ul class="nav nav-tabs">
+                <li role="presentation" ng-class="getClass('/')" ><a href="#/">Home</a></li>
+                <li role="presentation" ng-class="getClass('/planets')" ><a href="#/planets">Planets</a></li>
+                <li role="presentation" ng-class="getClass('/people')" ><a href="#/people">People</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    
+    
+
+    <div ng-view></div>
+
+
+
+</div>
+
+
+<base href="/">
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.js"></script>
+
+<script src="js/application.js"></script>
+
+<script src="js/services/swapi.js"></script>
+
+<script src="js/filters/specie.js"></script>
+<script src="js/filters/utilities.js"></script>
+
+<script src="js/controllers/mainCtrl.js"></script>
+<script src="js/controllers/planetsCtrl.js"></script>
+<script src="js/controllers/peopleCtrl.js"></script>
+
+<script src="js/directives/smart-table.js"></script>
+
+</body>
+</html>

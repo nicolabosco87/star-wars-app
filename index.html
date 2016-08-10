@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Star Wars App</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body ng-app="starwarsapp">
+
+<div ng-controller="mainController" class="container" >
+
+    <!--=include partials/header.html -->
+
+    <div ng-view></div>
+
+
+
+</div>
+
+
+<base href="/">
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.js"></script>
+
+<script src="js/application.js"></script>
+
+<script src="js/services/swapi.js"></script>
+
+<script src="js/filters/specie.js"></script>
+<script src="js/filters/utilities.js"></script>
+
+<script src="js/controllers/mainCtrl.js"></script>
+<script src="js/controllers/planetsCtrl.js"></script>
+<script src="js/controllers/peopleCtrl.js"></script>
+
+<script src="js/directives/smart-table.js"></script>
+
+</body>
+</html>

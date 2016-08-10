@@ -1,0 +1,30 @@
+<div class="row form-group">
+    <div class="col-xs-6">
+        <label for="filter">Filter by:</label>
+        <input type="text" class="form-control" id="filter" ng-model="filter">
+    </div>
+    <div class="col-xs-6">
+        <label for="order">Order by:</label>
+        <select class="form-control" id="order" ng-model="order">
+            <option ng-repeat="field in fields" value="{{field}}">{{field}}</option>
+        </select>
+    </div>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th ng-repeat="field in fields">{{field}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="datarow in data.results | filter:filter | orderBy:order" >
+            <td ng-repeat="field in fields" >
+
+                <div ng-if="htmlfields | contains:field" ng-bind-html="datarow[field]" ></div>
+                <div ng-if="htmlfields | notcontains:field" >{{datarow[field]}}</div>
+
+            </td>
+        </tr>
+    </tbody>
+</table>
