@@ -1,9 +1,11 @@
 <div class="row" ng-controller="peopleController">
     <div class="col-xs-12">
 
-        <h2>People</h2>
+        <h2>{{title}}</h2>
 
-        <smart-table data="people" fields="name gender species birth_year" />
+        <smart-table ng-show="peopleDetailId == undefined" data="people" fields="name gender species birth_year" />
+
+        <detail-table ng-show="peopleDetailId != undefined" data="people_detail" fields="name gender species birth_year" />
 
     </div>
 </div>

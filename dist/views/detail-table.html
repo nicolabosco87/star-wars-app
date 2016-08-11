@@ -1,0 +1,12 @@
+
+<table class="table table-striped">
+    <tbody>
+        <tr ng-repeat="field in fields" >
+
+            <td><b>{{field}}</b></td>
+            <td ng-if="htmlfields | contains:field" ng-bind-html="data[field]" ></td>
+            <td ng-if="htmlfields | notcontains:field" >{{data[field]}}</td>
+
+        </tr>
+    </tbody>
+</table>

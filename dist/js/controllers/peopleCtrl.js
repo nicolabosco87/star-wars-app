@@ -1,12 +1,30 @@
-StarWarsApp.controller('peopleController',function($scope, swapi, $q){
+StarWarsApp.controller('peopleController',function($scope, swapi, $q, $routeParams){
 
-    swapi.getPeople().then(function(d){
 
-        $scope.people = d;
+    //$scope.item = Item.get({id: $routeParams.id});
 
-        getSpeciesInfo();
+    //console.log($routeParams);
 
-    });
+    $scope.peopleDetailId = $routeParams.id;
+
+    if ($scope.peopleDetailId == undefined) {
+
+        $scope.title = "People";
+
+        swapi.getPeople().then(function(d){
+            $scope.people = d;
+            getSpeciesInfo();
+
+        });
+    } else {
+
+        $scope.title = "a";
+
+        swapi.getPeopleDetail($scope.peopleDetailId).then(function(d){
+            $scope.people_detail = d;
+            $scope.title = d.name;
+        });
+    }
 
 
     function getSpeciesInfo() {
@@ -26,10 +44,6 @@ StarWarsApp.controller('peopleController',function($scope, swapi, $q){
         }
 
         $q.all(promises).then(function(species){
-
-            console.log("ALL");
-            console.log(species);
-
             for (key in species) {
                 $scope.people.results[key].species = species[key].name;
             }

@@ -1,8 +1,5 @@
 StarWarsApp.filter('contains', function() {
     return function (array, needle) {
-
-        console.log(array, needle);
-
         return array.indexOf(needle) >= 0;
     };
 });

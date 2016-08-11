@@ -30,6 +30,17 @@ StarWarsApp.factory('swapi',function($http, $q){
 
         },
 
+        getPeopleDetail: function(id) {
+
+            var promise = $http.get(peopleUrl + id + '/')
+                .then(function(response) {
+                    return response.data;
+                });
+
+            return promise;
+
+        },
+
         getSpecie: function() {
             var promise = $http.get(speciesUrl)
                 .then(function(response) {

@@ -16,6 +16,9 @@ StarWarsApp.config(function($routeProvider) {
             })
             .when('/people', {
                 templateUrl: "/views/people.html"
+            })
+            .when('/people/:id', {
+                templateUrl: "/views/people-detail.html"
             });
     });
 
